@@ -1,6 +1,15 @@
-name: zooprim-backend
+name: zooprim
 
 services:
+  frontend:
+    container_name: frontend
+    restart: always
+    build: frontend/
+    depends_on:
+      - backend
+    ports:
+      - 3000:3000
+
   backend:
     container_name: backend
     restart: always
